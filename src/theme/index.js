@@ -1,8 +1,11 @@
+import media from "./media";
+
 const theme = {
+  media,
   font: {
-    s: "8px",
-    m: "12px",
-    l: "14px"
+    sm: "8px",
+    md: "12px",
+    lg: "14px"
   },
   colors: {
     orange: "#cc7537",
