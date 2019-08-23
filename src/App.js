@@ -1,10 +1,11 @@
 import React from "react";
-import { Button } from 'components';
+
+import Prueba from './views/Prueba';
 
 function App() {
   return (
     <div className="App">
-      <Button>Button</Button>
+      <Prueba />
     </div>
   );
 }
