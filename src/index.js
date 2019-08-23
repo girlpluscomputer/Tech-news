@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -7,9 +7,11 @@ import GlobalStyle from "./global-style";
 import theme from "./theme";
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <App />
+  <Fragment>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
     <GlobalStyle />
-  </ThemeProvider>,
+  </Fragment>,
   document.getElementById("root")
 );
