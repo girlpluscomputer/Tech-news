@@ -1,16 +1,19 @@
-import media from "./media";
+import media from './media';
 
 const theme = {
   media,
   font: {
     sm: "8px",
     md: "12px",
-    lg: "14px"
+    lg: "14px",
+    xl: "16px"
   },
   colors: {
-    orange: "#cc7537",
-    grey: "#383634"
+    primary: "#344955",
+    secondary: "#f9aa33",
+    gray: "#232f34"
   }
 };
 
 export default theme;
+
