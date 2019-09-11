@@ -9,7 +9,7 @@ const toast = (message, backgroundColor = 'lightBlue', duration = 3000) => {
     gravity: 'top',
     position: 'right',
     backgroundColor,
-    stopOnFocus: true
+    stopOnFocus: true,
   }).showToast();
 };
 

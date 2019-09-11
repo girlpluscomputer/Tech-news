@@ -4,7 +4,6 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
 import toast from 'toast';
-
 import { Button, Container, Loader } from '../../components';
 import Card from './style';
 import logo from '../../../src/static/logo.png';
@@ -39,7 +38,7 @@ const Login = ({ setIsAuthenticated }) => {
 
   const handleChange = e => {
     const {
-      target: { name, value }
+      target: { name, value },
     } = e;
 
     setData({ ...data, [name]: value });
