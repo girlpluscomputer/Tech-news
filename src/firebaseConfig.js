@@ -4,7 +4,7 @@ const {
   REACT_APP_DATABASE_URL,
   REACT_APP_PROJECT_ID,
   REACT_APP_MESSAGING_SENDER_ID,
-  REACT_APP_APP_ID
+  REACT_APP_APP_ID,
 } = process.env;
 
 const firebaseConfig = {
@@ -14,7 +14,7 @@ const firebaseConfig = {
   projectId: REACT_APP_PROJECT_ID,
   storageBucket: '',
   messagingSenderId: REACT_APP_MESSAGING_SENDER_ID,
-  appId: REACT_APP_APP_ID
+  appId: REACT_APP_APP_ID,
 };
 
 export default firebaseConfig;
