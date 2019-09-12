@@ -1,22 +1,19 @@
 import Toastify from 'toastify-js';
-import "toastify-js/src/toastify.css";
+import 'toastify-js/src/toastify.css';
 
-const toast = (
-  errorMessage,
-  backgroundColor = 'lightBlue',
-  duration = 3000
-) => {
+const toast = (message, backgroundColor = 'lightBlue', duration = 3000) => {
   return Toastify({
-    text: errorMessage,
+    text: message,
     duration,
     close: true,
-    gravity: "top",
+    gravity: 'top',
     position: 'right',
     backgroundColor,
-    stopOnFocus: true
+    stopOnFocus: true,
   }).showToast();
 };
 
-toast.danger = errorMessage => toast(errorMessage, 'tomato');
+toast.danger = message => toast(message, 'tomato');
+toast.success = message => toast(message, 'green');
 
 export default toast;

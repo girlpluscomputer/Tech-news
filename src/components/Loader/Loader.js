@@ -1,16 +1,16 @@
 import React from 'react';
-import StyledLoader from './style'
+import StyledLoader from './style';
 
 const Loader = () => {
-  return(
-    <StyledLoader class="spinner">
-      <div class="rect1" />
-      <div class="rect2" />
-      <div class="rect3" />
-      <div class="rect4" />
-      <div class="rect5" />
+  return (
+    <StyledLoader className="spinner">
+      <div className="rect1" />
+      <div className="rect2" />
+      <div className="rect3" />
+      <div className="rect4" />
+      <div className="rect5" />
     </StyledLoader>
   );
-}
+};
 
 export default Loader;

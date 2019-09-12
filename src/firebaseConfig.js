@@ -12,10 +12,9 @@ const firebaseConfig = {
   authDomain: REACT_APP_AUTH_DOMAIN,
   databaseURL: REACT_APP_DATABASE_URL,
   projectId: REACT_APP_PROJECT_ID,
-  storageBucket: "",
+  storageBucket: '',
   messagingSenderId: REACT_APP_MESSAGING_SENDER_ID,
   appId: REACT_APP_APP_ID,
 };
-
 
 export default firebaseConfig;
