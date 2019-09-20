@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Container, Navbar, Content } from './style';
 import BaselineAccountCircle from 'react-md-icon/dist/BaselineAccountCircle';
 
+import { getStories, getStory } from './api';
 import CardStorie from './components/card';
 import Loader from '../../components/Loader';
 import logo from '../../static/logo-white.png';
-import { getStories, getStory } from './api';
 
 const Home = () => {
   const [stories, setStories] = useState([]);

@@ -38,6 +38,7 @@ const App = () => {
     <Switch>
       <Route exact path="/" render={() => <Home />} />
       <Route exact path="/profile" render={() => <Profile />} />
+      <Redirect to="/" />
     </Switch>
   );
 

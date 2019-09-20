@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-
 import toast from 'toast';
+
 import { Button, Container, Loader } from '../../components';
 import Card from './style';
 import logo from '../../../src/static/logo-primary.png';
@@ -20,8 +20,8 @@ const Login = ({ setIsAuthenticated }) => {
       await firebase.auth().signInWithEmailAndPassword(email, password);
 
       toast.success('Welcome');
-      setIsAuthenticated(true);
       setLoading(false);
+      setIsAuthenticated(true);
     } catch (error) {
       const errorMessage = error.message;
 
