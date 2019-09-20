@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BaselineAccountCircle from 'react-md-icon/dist/BaselineAccountCircle';
 
-import { getStories, getStory } from './api';
 import { Container, Navbar, Content } from './style';
 import logo from '../../static/logo-white.png';
 import CardStorie from './components/card';
 import Loader from '../../components/Loader';
+import { getStories, getStory } from './api';
 
 const Home = () => {
   const [stories, setStories] = useState([]);
