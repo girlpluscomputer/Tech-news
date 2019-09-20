@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../../../theme';
 
 const Card = styled.div`
   width: 356px;
@@ -39,18 +38,18 @@ const Card = styled.div`
   }
 
   .date {
-    font-size: ${theme.font.sm};
+    font-size: ${props => props.theme.font.sm};
     margin: 0;
   }
 
   .title {
-    font-size: ${theme.font.md};
+    font-size: ${props => props.theme.font.md};
     font-weight: bold;
     padding: 2px 0;
   }
 
   .author {
-    font-size: ${theme.font.sm};
+    font-size: ${props => props.theme.font.sm};
   }
 `;
 

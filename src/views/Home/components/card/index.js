@@ -4,6 +4,7 @@ import BaselineStarBorder from 'react-md-icon/dist/BaselineStarBorder';
 
 const CardStorie = ({ story, formatDate }) => {
   const { time, title, by } = story;
+
   return (
     <Card>
       <div className="date-container">

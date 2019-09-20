@@ -1,19 +1,18 @@
 import styled from 'styled-components';
-import theme from '../../theme';
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: ${theme.colors.lightgray};
+  background-color: ${props => props.theme.colors.lightgray};
 `;
 
 const Navbar = styled.div`
   width: 100%;
   height: 30px;
   padding: 0px 16px;
-  background-color: ${theme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,7 +37,7 @@ const Navbar = styled.div`
     flex-direction: row;
 
     p {
-      font-size: ${theme.font.sm};
+      font-size: ${props => props.theme.font.sm};
       padding: 0 4px;
       color: #fff;
     }
@@ -54,7 +53,7 @@ const Navbar = styled.div`
       }
 
       svg:hover {
-        color: ${theme.colors.secondary};
+        color: ${props => props.theme.colors.secondary};
       }
     }
   }
@@ -63,7 +62,7 @@ const Navbar = styled.div`
 const Content = styled.div`
   width: 100%;
   padding: 40px;
-  background-color: ${theme.colors.lightgray};
+  background-color: ${props => props.theme.colors.lightgray};
   display: flex;
   flex-direction: column;
   align-items: center;

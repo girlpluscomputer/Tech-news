@@ -6,9 +6,8 @@ import 'firebase/auth';
 import toast from 'toast';
 
 import { Button, Container, Loader } from '../../components';
-import Card from './style';
 import logo from '../../../src/static/logo-primary.png';
-import theme from '../../theme';
+import Card from './style';
 
 const Register = ({ setIsAuthenticated }) => {
   const [data, setData] = useState({});
@@ -45,7 +44,7 @@ const Register = ({ setIsAuthenticated }) => {
 
   return (
     <Container>
-      <Card theme={theme}>
+      <Card>
         <form onSubmit={handleSubmit} className="form">
           <div className="image-container">
             <img src={logo} alt="logo" width="130" height="45" />
@@ -73,13 +72,7 @@ const Register = ({ setIsAuthenticated }) => {
             <div className="some-text">
               Already have an account? <Link to="/login">Log in</Link>
             </div>
-            {loading ? (
-              <Loader />
-            ) : (
-              <Button type="submit" theme={theme}>
-                Continue
-              </Button>
-            )}
+            {loading ? <Loader /> : <Button type="submit">Continue</Button>}
           </div>
         </form>
       </Card>
