@@ -12,9 +12,7 @@ class Api {
   }
 
   get(endpoint, params) {
-    return this.axiosInstance.get(endpoint, {
-      params,
-    });
+    return this.axiosInstance.get(endpoint, params);
   }
 }
 

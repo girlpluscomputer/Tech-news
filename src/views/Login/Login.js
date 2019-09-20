@@ -6,7 +6,7 @@ import 'firebase/auth';
 import toast from 'toast';
 import { Button, Container, Loader } from '../../components';
 import Card from './style';
-import logo from '../../../src/static/logo.png';
+import logo from '../../../src/static/logo-primary.png';
 import theme from '../../theme';
 
 const Login = ({ setIsAuthenticated }) => {
@@ -15,6 +15,7 @@ const Login = ({ setIsAuthenticated }) => {
 
   const authentication = async (email, password) => {
     setLoading(true);
+
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
 

@@ -4,11 +4,11 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
 } from 'react-router-dom';
 import 'firebase/auth';
 
-import { Home, Login, Register } from './views';
+import { Home, Login, Register, Profile } from './views';
 import firebaseConfig from './firebaseConfig';
 
 const App = () => {
@@ -36,14 +36,15 @@ const App = () => {
 
   const PrivateRoutes = () => (
     <Switch>
-      <Route path="/" component={() => <Home />} />
+      <Route exact path="/" render={() => <Home />} />
+      <Route exact path="/profile" render={() => <Profile />} />
     </Switch>
   );
 
   return (
     <Router>
-      {isAuthenticated && <PrivateRoutes />}
       {!isAuthenticated && <PublicRoutes />}
+      {isAuthenticated && <PrivateRoutes />}
     </Router>
   );
 };
