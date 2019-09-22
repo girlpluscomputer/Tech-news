@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from 'theme';
 
 const Container = styled.div`
   width: 100vw;
@@ -7,7 +6,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${theme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
 `;
 
 export default Container;

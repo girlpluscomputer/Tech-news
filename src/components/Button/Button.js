@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  border-radius: 16px;
+  border-radius: 4px;
   border: none;
   padding: 4px 16px;
   font-size: ${props => props.theme.font.lg};
@@ -28,4 +28,3 @@ const Button = styled.button`
 `;
 
 export default Button;
-

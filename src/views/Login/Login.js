@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-
 import toast from 'toast';
+
 import { Button, Container, Loader } from '../../components';
+import logo from '../../../src/static/logo-primary.png';
 import Card from './style';
-import logo from '../../../src/static/logo.png';
-import theme from '../../theme';
 
 const Login = ({ setIsAuthenticated }) => {
   const [data, setData] = useState({});
@@ -15,12 +14,13 @@ const Login = ({ setIsAuthenticated }) => {
 
   const authentication = async (email, password) => {
     setLoading(true);
+
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
 
       toast.success('Welcome');
-      setIsAuthenticated(true);
       setLoading(false);
+      setIsAuthenticated(true);
     } catch (error) {
       const errorMessage = error.message;
 
@@ -46,7 +46,7 @@ const Login = ({ setIsAuthenticated }) => {
 
   return (
     <Container>
-      <Card theme={theme}>
+      <Card>
         <form onSubmit={handleSubmit} className="form">
           <div className="image-container">
             <img src={logo} alt="logo" width="130" height="45" />
@@ -74,13 +74,7 @@ const Login = ({ setIsAuthenticated }) => {
             <div className="some-text">
               Don't have an account? <Link to="/register">Register</Link>
             </div>
-            {loading ? (
-              <Loader />
-            ) : (
-              <Button type="submit" theme={theme}>
-                Log in
-              </Button>
-            )}
+            {loading ? <Loader /> : <Button type="submit">Log in</Button>}
           </div>
         </form>
       </Card>

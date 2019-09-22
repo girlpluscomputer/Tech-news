@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as firebase from 'firebase/app';
-import "firebase/auth";
+import 'firebase/auth';
 
 import toast from 'toast';
 
 import { Button, Container, Loader } from '../../components';
-import Card from './style'
-import logo from '../../../src/static/logo.png';
-import theme from '../../theme';
+import logo from '../../../src/static/logo-primary.png';
+import Card from './style';
 
-const Register = ({setIsAuthenticated}) => {
+const Register = ({ setIsAuthenticated }) => {
   const [data, setData] = useState({});
-  const [loading, setLoading ] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const authentication = async (email, password) => {
     setLoading(true);
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
-      setLoading(false)
-      setIsAuthenticated(true)
+      setLoading(false);
+      setIsAuthenticated(true);
     } catch (error) {
       const errorMessage = error.message;
 
       toast.danger(errorMessage);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -37,7 +36,7 @@ const Register = ({setIsAuthenticated}) => {
 
   const handleChange = e => {
     const {
-      target: { name, value }
+      target: { name, value },
     } = e;
 
     setData({ ...data, [name]: value });
@@ -45,7 +44,7 @@ const Register = ({setIsAuthenticated}) => {
 
   return (
     <Container>
-      <Card theme={theme}>
+      <Card>
         <form onSubmit={handleSubmit} className="form">
           <div className="image-container">
             <img src={logo} alt="logo" width="130" height="45" />
@@ -73,14 +72,7 @@ const Register = ({setIsAuthenticated}) => {
             <div className="some-text">
               Already have an account? <Link to="/login">Log in</Link>
             </div>
-              {loading
-                ? <Loader />
-                : (
-                  <Button type="submit" theme={theme}>
-                    Continue
-                  </Button>
-                )
-              }
+            {loading ? <Loader /> : <Button type="submit">Continue</Button>}
           </div>
         </form>
       </Card>
