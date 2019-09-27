@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as firebase from 'firebase/app';
+
 import 'firebase/auth';
 
 import toast from 'toast';
@@ -9,7 +10,7 @@ import { Button, Container, Loader } from '../../components';
 import logo from '../../../src/static/logo-primary.png';
 import Card from './style';
 
-const Register = ({ setIsAuthenticated }) => {
+const Register = ({ setCurrentUser, setIsAuthenticated }) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -17,7 +18,10 @@ const Register = ({ setIsAuthenticated }) => {
     setLoading(true);
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
+      const currentUser = firebase.auth().currentUser.uid;
+
       setLoading(false);
+      setCurrentUser(currentUser);
       setIsAuthenticated(true);
     } catch (error) {
       const errorMessage = error.message;
@@ -46,8 +50,8 @@ const Register = ({ setIsAuthenticated }) => {
     <Container>
       <Card>
         <form onSubmit={handleSubmit} className="form">
-          <div className="image-container">
-            <img src={logo} alt="logo" width="130" height="45" />
+          <div className="logo-container">
+            <img src={logo} alt="logo" width="90px" />
           </div>
           <div className="title">Sign up</div>
           <input

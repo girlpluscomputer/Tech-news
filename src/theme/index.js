@@ -9,10 +9,9 @@ const theme = {
     xl: '16px',
   },
   colors: {
-    primary: '#344955',
-    secondary: '#f9aa33',
-    gray: '#232f34',
-    lightgray: '#ededed',
+    primary: '#2C3E50',
+    secondary: '#4CA1AF',
+    lightBlue: '#cadce6',
   },
 };
 

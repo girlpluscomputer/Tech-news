@@ -12,7 +12,7 @@ const Navbar = styled.div`
   width: 100%;
   height: 30px;
   padding: 0px 16px;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: #000;
   display: flex;
   align-items: center;
   justify-content: space-between;

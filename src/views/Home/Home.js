@@ -8,7 +8,7 @@ import CardStorie from './components/card';
 import Loader from '../../components/Loader';
 import { getStories, getStory } from './api';
 
-const Home = () => {
+const Home = ({ addToFavorites }) => {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -74,7 +74,12 @@ const Home = () => {
       <Content>
         {loading && <Loader />}
         {stories.map(story => (
-          <CardStorie key={story.id} story={story} formatDate={formatDate} />
+          <CardStorie
+            key={story.id}
+            story={story}
+            formatDate={formatDate}
+            addToFavorites={addToFavorites}
+          />
         ))}
       </Content>
     </Container>
