@@ -11,7 +11,10 @@ const theme = {
   colors: {
     primary: '#2C3E50',
     secondary: '#4CA1AF',
-    lightBlue: '#cadce6',
+    white: '#fff',
+    black: '#000',
+    gray: '#f0f0f0',
+    gradient: '#2c3e50',
   },
 };
 

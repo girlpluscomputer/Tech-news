@@ -7,7 +7,6 @@ import {
   Redirect,
 } from 'react-router-dom';
 import 'firebase/auth';
-import 'firebase/database';
 
 import { Home, Login, Register, Profile } from './views';
 import firebaseConfig from './firebaseConfig';
@@ -15,23 +14,10 @@ import firebaseConfig from './firebaseConfig';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState('');
-  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     firebase.initializeApp(firebaseConfig);
   }, []);
-
-  const addToFavorites = idFavorite => {
-    if (!favorites.includes(idFavorite)) {
-      setFavorites([...favorites, idFavorite]);
-    }
-
-    const usersRef = firebase.database().ref('users/');
-    usersRef
-      .child(currentUser)
-      .child('favorites')
-      .push(idFavorite);
-  };
 
   const PublicRoutes = () => (
     <Switch>
@@ -61,13 +47,7 @@ const App = () => {
 
   const PrivateRoutes = () => (
     <Switch>
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <Home currentUser={currentUser} addToFavorites={addToFavorites} />
-        )}
-      />
+      <Route exact path="/" render={() => <Home currentUser={currentUser} />} />
       <Route exact path="/profile" render={() => <Profile />} />
       <Redirect to="/" />
     </Switch>

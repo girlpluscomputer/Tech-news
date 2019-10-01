@@ -2,20 +2,21 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
-  background-color: ${props => props.theme.colors.lightgray};
+  background-color: ${props => props.theme.colors.gray};
 `;
 
 const Navbar = styled.div`
   width: 100%;
   height: 30px;
   padding: 0px 16px;
-  background-color: #000;
+  background-color: ${props => props.theme.colors.white};
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
 
   a {
     display: flex;
@@ -39,7 +40,7 @@ const Navbar = styled.div`
     p {
       font-size: ${props => props.theme.font.sm};
       padding: 0 4px;
-      color: #fff;
+      color: ${props => props.theme.colors.black};
     }
 
     .user-icon {
@@ -49,7 +50,7 @@ const Navbar = styled.div`
 
       svg {
         width: 14px;
-        color: #fff;
+        color: ${props => props.theme.colors.black};
       }
 
       svg:hover {
@@ -62,7 +63,6 @@ const Navbar = styled.div`
 const Content = styled.div`
   width: 100%;
   padding: 40px;
-  background-color: ${props => props.theme.colors.lightgray};
   display: flex;
   flex-direction: column;
   align-items: center;

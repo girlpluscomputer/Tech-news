@@ -6,7 +6,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #2c3e50; /* fallback for old browsers */
+  background: ${props =>
+    props.theme.colors.background}; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to bottom,
     #4ca1af,
