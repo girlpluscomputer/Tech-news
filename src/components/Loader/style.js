@@ -16,7 +16,6 @@ const StyledLoader = styled.div`
   height: 30px;
   font-size: 10px;
   text-align: center;
-  
 
   div {
     background-color: ${theme.colors.primary};
@@ -34,8 +33,8 @@ const StyledLoader = styled.div`
   }
 
   .rect3 {
-    -webkit-animation-delay: -1.0s;
-    animation-delay: -1.0s;
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
   }
 
   .rect4 {

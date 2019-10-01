@@ -13,6 +13,7 @@ import firebaseConfig from './firebaseConfig';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState('');
 
   useEffect(() => {
     firebase.initializeApp(firebaseConfig);
@@ -23,12 +24,22 @@ const App = () => {
       <Route
         exact
         path="/register"
-        render={() => <Register setIsAuthenticated={setIsAuthenticated} />}
+        render={() => (
+          <Register
+            setCurrentUser={setCurrentUser}
+            setIsAuthenticated={setIsAuthenticated}
+          />
+        )}
       />
       <Route
         exact
         path="/login"
-        render={() => <Login setIsAuthenticated={setIsAuthenticated} />}
+        render={() => (
+          <Login
+            setCurrentUser={setCurrentUser}
+            setIsAuthenticated={setIsAuthenticated}
+          />
+        )}
       />
       <Redirect to="/login" />
     </Switch>
@@ -36,7 +47,7 @@ const App = () => {
 
   const PrivateRoutes = () => (
     <Switch>
-      <Route exact path="/" render={() => <Home />} />
+      <Route exact path="/" render={() => <Home currentUser={currentUser} />} />
       <Route exact path="/profile" render={() => <Profile />} />
       <Redirect to="/" />
     </Switch>

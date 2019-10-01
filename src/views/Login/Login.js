@@ -8,7 +8,7 @@ import { Button, Container, Loader } from '../../components';
 import logo from '../../../src/static/logo-primary.png';
 import Card from './style';
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = ({ setCurrentUser, setIsAuthenticated }) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -17,8 +17,10 @@ const Login = ({ setIsAuthenticated }) => {
 
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
-
       toast.success('Welcome');
+      const currentUser = firebase.auth().currentUser.uid;
+
+      setCurrentUser(currentUser);
       setLoading(false);
       setIsAuthenticated(true);
     } catch (error) {
@@ -48,10 +50,10 @@ const Login = ({ setIsAuthenticated }) => {
     <Container>
       <Card>
         <form onSubmit={handleSubmit} className="form">
-          <div className="image-container">
-            <img src={logo} alt="logo" width="130" height="45" />
+          <div className="logo-container">
+            <img src={logo} alt="logo" width="90px" />
           </div>
-          <div className="title">Log in</div>
+          <div className="title">Welcome back!</div>
           <input
             id="email"
             type="text"

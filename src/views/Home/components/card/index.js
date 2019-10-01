@@ -2,14 +2,14 @@ import React from 'react';
 import Card from './style';
 import BaselineStarBorder from 'react-md-icon/dist/BaselineStarBorder';
 
-const CardStorie = ({ story, formatDate }) => {
-  const { time, title, by } = story;
+const CardStorie = ({ story, formatDate, addToFavorites }) => {
+  const { id, time, title, by } = story;
 
   return (
     <Card>
       <div className="date-container">
         <p className="date">{formatDate(time)}</p>
-        <button className="fav-icon">
+        <button className="fav-icon" onClick={() => addToFavorites(id)}>
           <BaselineStarBorder />
         </button>
       </div>

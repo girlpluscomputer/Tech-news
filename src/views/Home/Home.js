@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BaselineAccountCircle from 'react-md-icon/dist/BaselineAccountCircle';
+import * as firebase from 'firebase/app';
+import 'firebase/database';
 
 import { Container, Navbar, Content } from './style';
-import logo from '../../static/logo-white.png';
+import logo from '../../static/logo-primary.png';
 import CardStorie from './components/card';
 import Loader from '../../components/Loader';
 import { getStories, getStory } from './api';
 
-const Home = () => {
+const Home = ({ currentUser }) => {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [favorites, setFavorites] = useState([]);
 
   const fetchNews = async () => {
     setLoading(true);
@@ -31,6 +34,18 @@ const Home = () => {
   useEffect(() => {
     fetchNews();
   }, []);
+
+  const addToFavorites = idFavorite => {
+    if (!favorites.includes(idFavorite)) {
+      setFavorites([...favorites, idFavorite]);
+    }
+
+    const usersRef = firebase.database().ref('users/');
+    usersRef
+      .child(currentUser)
+      .child('favorites')
+      .push(idFavorite);
+  };
 
   const formatDate = time => {
     const months = [
@@ -74,7 +89,12 @@ const Home = () => {
       <Content>
         {loading && <Loader />}
         {stories.map(story => (
-          <CardStorie key={story.id} story={story} formatDate={formatDate} />
+          <CardStorie
+            key={story.id}
+            story={story}
+            formatDate={formatDate}
+            addToFavorites={addToFavorites}
+          />
         ))}
       </Content>
     </Container>
